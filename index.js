@@ -1,6 +1,8 @@
 const solarSystem = document.getElementById("solarSystem")
 const totalMoonContainer = document.getElementById("total-moons")
-let sum
+const countDisplay = document.querySelector(".count-display")
+
+
 const planetsObj = [
     {
         "name": "Mercury",
@@ -44,7 +46,8 @@ const planetsObj = [
 
 function getPlanets() {
 
-
+    let sum
+    let numMoons = 0
 
     let planetsArray = planetsObj.map((planet) => {
 
@@ -56,7 +59,7 @@ function getPlanets() {
         // moonArray.concat(moonArray)
         // console.log(moonArray)
 
-        let sum = planetsObj.reduce((a, b) => {
+        sum = planetsObj.reduce((a, b) => {
             return a + b.moons
         }, 0)
         console.log(sum)
@@ -88,6 +91,15 @@ function getPlanets() {
 
 
     })
+    const timeInterval = setInterval(moonCount, 100)
+    function moonCount() {
+        numMoons += 1;
+        countDisplay.innerText = numMoons
+        console.log(sum)
+        if (numMoons == sum) {
+            clearInterval(timeInterval)
+        }
+    }
 }
 
 getPlanets()
