@@ -20,10 +20,18 @@ body {
     padding: 2em;
 }
 
-.total {
+#total-moons p {
     font-size: 1.5em;
     text-transform: uppercase;
     padding: 20px;
+}
+
+#total-moons span {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    padding: 20px;
+    color: gold;
+
 }
 
 #solarSystem {
